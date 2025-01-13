@@ -1,21 +1,19 @@
-import React, { useEffect } from 'react'
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import {Button} from "@/components/ui/button";
-  import Image from 'next/image';
-  import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-    DialogFooter,
-    DialogClose
-  } from "@/components/ui/dialog"
-  import { Copy } from "lucide-react"
-  import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import React, { useEffect } from 'react';
   
 function InputGroup(props:any){
     const {label, srno, val, setVal} = props
