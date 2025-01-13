@@ -1,36 +1,141 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Skill Assessment Dashboard
 
-## Getting Started
+A modern, interactive dashboard built with Next.js and TypeScript for visualizing and managing skill assessment results. This project demonstrates proficiency in modern web development technologies and best practices.
 
-First, run the development server:
+![Dashboard Preview](public/images/screenshot.png)
+## 🚀 Key Features
+
+- **Interactive Data Visualization**
+  - Dynamic pie charts showing assessment scores
+  - Comparative line charts for percentile analysis
+  - Real-time progress indicators
+  - Syllabus-wise analysis with color-coded progress bars
+
+- **Modern UI Components**
+  - Responsive card layouts
+  - Accessible dialog modals for data updates
+  - Custom tooltips and interactive elements
+  - Animated progress indicators
+
+- **State Management**
+  - Real-time score updates
+  - Dynamic percentile calculations
+  - Interactive data modifications
+
+- **Accessibility**
+  - ARIA labels and roles
+  - Keyboard navigation support
+  - Screen reader compatibility
+  - Focus management
+
+## 🛠️ Technologies Used
+
+### Core
+- [Next.js 15.1](https://nextjs.org/) - React Framework
+- [TypeScript](https://www.typescriptlang.org/) - Type Safety
+
+### UI Components & Styling
+- [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS
+- [Shadcn/ui](https://ui.shadcn.com/) - UI Component Library
+- [Radix UI](https://www.radix-ui.com/) - Headless UI Components
+- [Lucide Icons](https://lucide.dev/) - Icon Library
+
+### Data Visualization
+- [Recharts](https://recharts.org/) - Composable charting library
+
+## 📊 Dashboard Features
+
+1. **Score Analysis**
+   - Overall score display
+   - Percentile comparison
+   - Rank tracking
+   - Performance metrics
+
+2. **Visual Representations**
+   - Pie charts for score distribution
+   - Line charts for comparative analysis
+   - Progress bars for syllabus coverage
+
+3. **Interactive Updates**
+   - Real-time score modifications
+   - Dynamic rank updates
+   - Percentile recalculations
+
+## 🚀 Getting Started
+
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+git clone https://github.com/mucchu/dashboard.git
+cd dashboard
+```
+```bash
+pnpm install
 pnpm dev
-# or
-bun dev
+```
+```src/
+├── app/ # Next.js app directory
+│ ├── components/ # React components
+│ │ ├── navbar.tsx # Navigation component
+│ │ ├── pie_chart.tsx # Chart components
+│ │ └── subanalysis.tsx # Analysis components
+│ ├── layout.tsx # Root layout
+│ └── page.tsx # Main dashboard page
+├── components/ # Shared UI components
+│ └── ui/ # Shadcn UI components
+│ ├── button.tsx
+│ ├── card.tsx
+│ ├── progress.tsx
+│ └── ...
+└── lib/ # Utility functions
+└── utils.ts # Helper functions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Learning Outcomes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Modern React/Next.js Development**
+  - App Router implementation
+  - Server and Client Components
+  - TypeScript integration
+  - Performance optimization
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **UI/UX Development**
+  - Component-based architecture
+  - Responsive design patterns
+  - Accessibility implementation
 
-## Learn More
+- **Data Visualization**
+  - Chart implementation using Recharts
+  - Real-time data updates
+  - Interactive visualizations
+  - Performance optimization
 
-To learn more about Next.js, take a look at the following resources:
+- **Best Practices**
+  - Clean code architecture
+  - DRY principles
+  - Type safety
+  - Code splitting
+  - Performance optimization
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔍 Key Implementation Details
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Performance**
+  - Image optimization
+  - Code splitting
+  - Dynamic imports
+  - Memoization where necessary
 
-## Deploy on Vercel
+- **Testing**
+  - Component testing setup
+  - Accessibility testing
+  - Cross-browser testing
+  - Responsive design testing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🙏 Acknowledgments
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Shadcn/ui Components](https://ui.shadcn.com)
+- [Recharts Library](https://recharts.org)
+- [TailwindCSS](https://tailwindcss.com)
+
