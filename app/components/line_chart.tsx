@@ -1,14 +1,13 @@
 "use client"
 
 import * as React from "react"
-import { useRef, useEffect } from "react"
-import { CartesianGrid, Line, LineChart, XAxis, ReferenceLine, Dot } from "recharts"
+import { useEffect, useRef } from "react"
+import { Dot, Line, LineChart, ReferenceLine, XAxis } from "recharts"
 
 import {
   ChartConfig,
   ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
+  ChartTooltip
 } from "@/components/ui/chart"
 
 const CustomDot = (props: any) => {

@@ -1,25 +1,19 @@
 "use client";
-import { Metadata } from "next";
-import React, { useState } from "react";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
-import { Theme } from "@radix-ui/themes";
-import "@radix-ui/themes/styles.css";
-import { ExampleLineChart } from "./components/line_chart";
-import Details from "./components/details";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from "@/components/ui/card";
+import "@radix-ui/themes/styles.css";
 import { ChartSpline } from "lucide-react";
+import { useState } from "react";
+import Details from "./components/details";
+import { ExampleLineChart } from "./components/line_chart";
 import Navbar from "./components/navbar";
 import ExamplePieChart from "./components/pie_chart";
 // import { PieChart, Pie, Cell } from "recharts";
-import { Check, Trophy, NotepadText } from "lucide-react";
+import { Check, NotepadText, Trophy } from "lucide-react";
 import Subanalysis from "./components/subanalysis";
 
 const data = [

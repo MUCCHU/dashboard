@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
-import { PieChart, Pie, Cell } from 'recharts';
+import { PureComponent } from 'react';
+import { Cell, Pie, PieChart } from 'recharts';
 
 const COLORS = ['#0088FE', '#EAF2FE', '#FFBB28', '#FF8042'];
 
