@@ -1,101 +1,140 @@
+"use client";
+import { Metadata } from "next";
+import React, { useState } from "react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { Theme } from "@radix-ui/themes";
+import "@radix-ui/themes/styles.css";
+import { ExampleLineChart } from "./components/line_chart";
+import Details from "./components/details";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { ChartSpline } from "lucide-react";
+import Navbar from "./components/navbar";
+import ExamplePieChart from "./components/pie_chart";
+// import { PieChart, Pie, Cell } from "recharts";
+import { Check, Trophy, NotepadText } from "lucide-react";
+import Subanalysis from "./components/subanalysis";
 
-export default function Home() {
+const data = [
+  { name: "Group A", value: 400 },
+  { name: "Group B", value: 300 },
+  { name: "Group C", value: 300 },
+  { name: "Group D", value: 200 },
+];
+const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+export default function DashboardPage() {
+  const [rank, setRank] = useState(1);
+  const [percentile, setPercentile] = useState(30);
+  const [score, setScore] = useState(10);
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <div className="flex-col md:flex">
+        <Navbar />
+        <div className="flex-1 space-y-4 p-8 pt-6">
+          <div className="flex items-center justify-between space-y-2">
+            <h2 className="text-xl tracking-tight">Skill Test</h2>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <div className="grid gap-4 grid-cols-2 lg:grid-cols-7">
+            <div className="col-span-4 gap-4 flex flex-col">
+              <Details
+                rank={rank}
+                setRank={setRank}
+                percentile={percentile}
+                setPercentile={setPercentile}
+                score={score}
+                setScore={setScore}
+              />
+              <Card className="">
+                <CardHeader>
+                  <CardTitle>Quick Statistics</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col sm:flex-row p-3 pt-0">
+                  <div className="sm:border-r p-3 flex gap-4">
+                    <div className="rounded-full h-14 w-14 min-w-14 flex justify-center items-center bg-gray-100 p-2">
+                      <Trophy />
+                    </div>
+                    <div>
+                      <h2 className="font-black text-xl">{rank}</h2>
+                      <p className="uppercase text-gray-400 text-sm">
+                        your rank
+                      </p>
+                    </div>
+                  </div>
+                  <div className="sm:border-r p-3 flex gap-4">
+                    <div className="rounded-full h-14 w-14 min-w-14 flex justify-center items-center bg-gray-100 p-2">
+                      <NotepadText />
+                    </div>
+                    <div>
+                      <h2 className="font-black text-xl">{percentile}%</h2>
+                      <p className="uppercase text-gray-400 text-sm">
+                        Percentile
+                      </p>
+                    </div>
+                  </div>
+                  <div className="p-3 flex gap-4">
+                    <div className="rounded-full h-14 w-14 min-w-14 flex justify-center items-center bg-gray-100 p-2">
+                      <Check />
+                    </div>
+                    <div>
+                      <h2 className="font-black text-xl">{score} / 15</h2>
+                      <p className="uppercase text-gray-400 text-sm">
+                        correct answers
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Comparision Graph</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex justify-between gap-3">
+                  <p className="">
+                    Who scored {percentile}% which is {percentile>72? "higher":"lower"} than the average percentile
+                    72% of all the Engineers who took the assessment
+                  </p>
+                  <div className="w-10 h-10 min-w-10 rounded-full flex items-center justify-center bg-gray-300">
+                    <ChartSpline className="" />
+                  </div>
+                  </div>
+                  <ExampleLineChart percentile={percentile} />
+                </CardContent>
+              </Card>
+            </div>
+            <div className="col-span-3 flex flex-col gap-4">
+              <Subanalysis />
+              <Card>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                  <CardTitle>Question Analysis</CardTitle>
+                  <p>{score}/15</p>
+                </CardHeader>
+                <CardContent>
+                  <div className="">
+                    <span className="font-extrabold">
+                      {" "}
+                      You scored {score} questions correct out of 15.
+                    </span>{" "}
+                    However it still needs some improvements.
+                  </div>
+                  <div className="flex justify-center">
+                  <ExamplePieChart score={score} />
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+    </>
   );
 }
