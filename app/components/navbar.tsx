@@ -1,12 +1,12 @@
 'use client';
-import React, {useState} from 'react'
-import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 // import img from '@/app/whatbytes_logo.png';
 
 function Navbar() {
-    const [name, setName] = useState("Rahil Siddiqui");
+    // const [name, setName] = useState("Rahil Siddiqui");
+    const name = "Rahil Siddiqui";
   return (
     <div className="border-b py-1">
     <div className="flex h-16 items-center px-4">

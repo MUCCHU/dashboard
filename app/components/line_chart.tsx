@@ -36,8 +36,9 @@ const chartConfig = {
 export function ExampleLineChart(props:any) {
   const currPercentile = Number(props.percentile);
   // console.log(typeof(currPercentile))
-  const [activeChart, setActiveChart] =
-    React.useState<keyof typeof chartConfig>("students")
+  // const [activeChart, setActiveChart] =
+  //   React.useState<keyof typeof chartConfig>("students")
+  const activeChart = "students";
   const [chartData, setChartData] = React.useState([
     {percentile: 20, students: 5},
     {percentile: 30, students: 4},

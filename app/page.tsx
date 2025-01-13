@@ -16,13 +16,13 @@ import ExamplePieChart from "./components/pie_chart";
 import { Check, NotepadText, Trophy } from "lucide-react";
 import Subanalysis from "./components/subanalysis";
 
-const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
-];
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+// const data = [
+//   { name: "Group A", value: 400 },
+//   { name: "Group B", value: 300 },
+//   { name: "Group C", value: 300 },
+//   { name: "Group D", value: 200 },
+// ];
+// const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 export default function DashboardPage() {
   const [rank, setRank] = useState(1);
   const [percentile, setPercentile] = useState(30);
